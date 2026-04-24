@@ -1,0 +1,19 @@
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+/google-services.json
+*.hprof
+
+# Android Studio / IntelliJ
+*.ipr
+*.iws
+/out/
+
+# App-specific
+/app/build/
