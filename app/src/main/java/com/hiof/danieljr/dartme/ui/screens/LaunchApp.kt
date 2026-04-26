@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -16,8 +17,8 @@ import com.hiof.danieljr.dartme.navigation.Screen
 @Composable
 fun LaunchApp() {
     val navController = rememberNavController()
-    // Vi lagrer spillernavnene her slik at vi kan sende dem til GameScreen
     var sharedPlayerNames by remember { mutableStateOf(listOf<String>()) }
+    var sharedStartScore by remember { mutableIntStateOf(501) }
 
     Scaffold { innerPadding ->
         NavHost(
@@ -28,15 +29,15 @@ fun LaunchApp() {
             composable(Screen.Splash.route) {
                 SplashScreen(onTimeout = {
                     navController.navigate(Screen.Setup.route) {
-                        // Fjern splash fra backstack så man ikke går tilbake til den
                         popUpTo(Screen.Splash.route) { inclusive = true }
                     }
                 })
             }
 
             composable(Screen.Setup.route) {
-                DartInputScreen(onStartGame = { names ->
+                DartInputScreen(onStartGame = { names, startScore ->
                     sharedPlayerNames = names
+                    sharedStartScore = startScore
                     navController.navigate(Screen.Game.route)
                 })
             }
@@ -44,6 +45,7 @@ fun LaunchApp() {
             composable(Screen.Game.route) {
                 DartGameScreen(
                     playerNames = sharedPlayerNames,
+                    startScore = sharedStartScore,
                     onBack = {
                         navController.popBackStack(Screen.Setup.route, inclusive = false)
                     }
