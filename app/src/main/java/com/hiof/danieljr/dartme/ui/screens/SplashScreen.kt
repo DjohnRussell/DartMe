@@ -55,7 +55,7 @@ fun SplashScreen(onTimeout: () -> Unit) {
     // Spill av lyd og naviger videre
     LaunchedEffect(Unit) {
         mediaPlayer?.start()
-        delay(2500)
+        delay(3000)
         onTimeout()
     }
 
