@@ -1,6 +1,11 @@
 package com.hiof.danieljr.dartme.ui.screens
 
+import android.content.Context
 import android.media.MediaPlayer
+import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -44,7 +49,6 @@ fun SplashScreen(onTimeout: () -> Unit) {
 
     // Lyd-håndtering
     val mediaPlayer = remember {
-        // Vi bruker try-catch i tilfelle filen ikke finnes ennå
         try {
             MediaPlayer.create(context, R.raw.dart_sound)
         } catch (e: Exception) {
@@ -52,9 +56,29 @@ fun SplashScreen(onTimeout: () -> Unit) {
         }
     }
 
-    // Spill av lyd og naviger videre
+    // Vibrasjons-håndtering
+    val vibrator = remember {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val vibratorManager = context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+            vibratorManager.defaultVibrator
+        } else {
+            @Suppress("DEPRECATION")
+            context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        }
+    }
+
+    // Spill av lyd, vibrer og naviger videre
     LaunchedEffect(Unit) {
         mediaPlayer?.start()
+        
+        // Enkel vibrasjon (500ms)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            vibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator.vibrate(500)
+        }
+
         delay(3000)
         onTimeout()
     }
