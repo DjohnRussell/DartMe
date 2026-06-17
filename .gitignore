@@ -21,3 +21,7 @@
 # Keystores (Viktig!)
 *.jks
 *.keystore
+
+# Install-filer (Store filer som ikke skal på GitHub)
+*.apk
+*.aab
