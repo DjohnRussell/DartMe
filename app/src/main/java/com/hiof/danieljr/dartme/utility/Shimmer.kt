@@ -1,4 +1,4 @@
-package com.hiof.danieljr.dartme.utility
+package com.danieljr.dartme.utility
 
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable

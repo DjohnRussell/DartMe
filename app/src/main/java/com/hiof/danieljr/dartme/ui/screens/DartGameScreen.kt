@@ -1,4 +1,4 @@
-package com.hiof.danieljr.dartme.ui.screens
+package com.danieljr.dartme.ui.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.*
@@ -56,8 +56,8 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.hiof.danieljr.dartme.logic.ScoreCalculator
-import com.hiof.danieljr.dartme.utility.shimmerLoading
+import com.danieljr.dartme.logic.ScoreCalculator
+import com.danieljr.dartme.utility.shimmerLoading
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

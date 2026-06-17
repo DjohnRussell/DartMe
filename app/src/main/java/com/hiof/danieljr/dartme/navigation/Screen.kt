@@ -1,4 +1,4 @@
-package com.hiof.danieljr.dartme.navigation
+package com.danieljr.dartme.navigation
 
 enum class Screen(val route: String) {
     Splash("splash"),

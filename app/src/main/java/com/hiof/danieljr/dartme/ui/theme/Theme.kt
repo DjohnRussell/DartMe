@@ -1,4 +1,4 @@
-package com.hiof.danieljr.dartme.ui.theme
+package com.danieljr.dartme.ui.theme
 
 import android.app.Activity
 import android.os.Build

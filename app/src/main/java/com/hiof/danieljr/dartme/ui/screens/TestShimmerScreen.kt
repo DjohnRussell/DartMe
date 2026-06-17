@@ -1,4 +1,4 @@
-package com.hiof.danieljr.dartme.ui.screens
+package com.danieljr.dartme.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -33,7 +33,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hiof.danieljr.dartme.utility.shimmerLoading
+import com.danieljr.dartme.utility.shimmerLoading
 import kotlinx.coroutines.delay
 
 @Composable

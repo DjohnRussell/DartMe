@@ -17,3 +17,7 @@
 
 # App-specific
 /app/build/
+
+# Keystores (Viktig!)
+*.jks
+*.keystore

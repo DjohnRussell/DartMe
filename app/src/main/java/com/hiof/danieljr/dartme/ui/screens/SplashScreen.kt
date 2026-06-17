@@ -1,4 +1,4 @@
-package com.hiof.danieljr.dartme.ui.screens
+package com.danieljr.dartme.ui.screens
 
 import android.content.Context
 import android.media.MediaPlayer
@@ -27,8 +27,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.hiof.danieljr.dartme.R
-import com.hiof.danieljr.dartme.utility.shimmerLoading
+import com.danieljr.dartme.R
+import com.danieljr.dartme.utility.shimmerLoading
 import kotlinx.coroutines.delay
 
 @Composable
